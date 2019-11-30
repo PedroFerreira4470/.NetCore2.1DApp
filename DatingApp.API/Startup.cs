@@ -1,5 +1,6 @@
 using System.Text;
 using DatingApp.API.Data;
+using DatingApp.API.Exceptions;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -46,6 +47,10 @@ namespace DatingApp.API
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+            }
+            else
+            {
+                app.ConfigureExceptionHandler(env);
             }
 
             //app.UseHttpsRedirection();
